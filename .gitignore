@@ -8,3 +8,7 @@ Thumbs.db
 
 # Editor configurations
 .idea/
+
+
+# Bytecode
+__pycache__/
