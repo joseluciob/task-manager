@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { Box, Button, TextField } from "@mui/material";
 
 export const TaskForm = ({ onAdd }: { onAdd: (title: string) => void }) => {
     const [title, setTitle] = useState("");
@@ -11,17 +12,16 @@ export const TaskForm = ({ onAdd }: { onAdd: (title: string) => void }) => {
     };
 
     return (
-        <form onSubmit={submit} className="flex gap-2 my-4">
-            <input
-                type="text"
-                className="flex-1 border rounded p-2"
-                placeholder="New task"
+        <Box component="form" onSubmit={submit} display="flex" gap={2} mb={4}>
+            <TextField
+                fullWidth
+                label="New task"
                 value={title}
                 onChange={(e) => setTitle(e.target.value)}
             />
-            <button className="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600">
+            <Button variant="contained" type="submit">
                 Add
-            </button>
-        </form>
+            </Button>
+        </Box>
     );
 };

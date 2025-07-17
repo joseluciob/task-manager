@@ -1,23 +1,29 @@
 import Head from "next/head";
-import { TaskItem } from "@/components/TaskItem";
-import { TaskForm } from "@/components/TaskForm";
-import { useTasks } from "@/hooks/useTasks";
+import { Container, Typography, CircularProgress } from "@mui/material";
+import { TaskItem } from "../components/TaskItem";
+import { TaskForm } from "../components/TaskForm";
+import { useTasks } from "../hooks/useTasks";
 
 export default function Home() {
     const { tasks, addTask, changeStatus, removeTask, loading } = useTasks();
 
     return (
-        <div className="min-h-screen bg-gray-100 p-6">
+        <>
             <Head>
                 <title>Task Manager</title>
             </Head>
-            <main className="max-w-2xl mx-auto">
-                <h1 className="text-3xl font-bold mb-4">Tasks</h1>
+
+            <Container maxWidth="sm" sx={{ py: 4 }}>
+                <Typography variant="h4" gutterBottom>
+                    Tasks
+                </Typography>
+
                 <TaskForm onAdd={addTask} />
+
                 {loading ? (
-                    <p>Loading...</p>
+                    <CircularProgress />
                 ) : (
-                    tasks.map(task => (
+                    tasks.map((task: Task) => (
                         <TaskItem
                             key={task.id}
                             task={task}
@@ -26,7 +32,7 @@ export default function Home() {
                         />
                     ))
                 )}
-            </main>
-        </div>
+            </Container>
+        </>
     );
 }

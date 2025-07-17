@@ -1,4 +1,13 @@
 import { Task } from "../types/task";
+import {
+    Box,
+    Typography,
+    IconButton,
+    Select,
+    MenuItem,
+    Paper,
+} from "@mui/material";
+import DeleteIcon from "@mui/icons-material/Delete";
 
 interface Props {
     task: Task;
@@ -8,28 +17,27 @@ interface Props {
 
 export const TaskItem = ({ task, onUpdate, onDelete }: Props) => {
     return (
-        <div className="flex justify-between items-center border p-4 rounded-lg shadow-sm mb-2 bg-white">
-            <div>
-                <p className="font-medium">{task.title}</p>
-                <p className="text-sm text-gray-500">{task.status}</p>
-            </div>
-            <div className="flex gap-2">
-                <select
-                    className="text-sm border px-2 py-1 rounded"
+        <Paper elevation={1} sx={{ p: 2, mb: 2, display: "flex", justifyContent: "space-between" }}>
+            <Box>
+                <Typography variant="subtitle1">{task.title}</Typography>
+                <Typography variant="body2" color="text.secondary">
+                    {task.status}
+                </Typography>
+            </Box>
+            <Box display="flex" gap={2} alignItems="center">
+                <Select
+                    size="small"
                     value={task.status}
                     onChange={(e) => onUpdate(task.id, e.target.value as Task["status"])}
                 >
-                    <option value="pending">Pending</option>
-                    <option value="in_progress">In Progress</option>
-                    <option value="completed">Completed</option>
-                </select>
-                <button
-                    className="text-red-500 hover:text-red-700"
-                    onClick={() => onDelete(task.id)}
-                >
-                    ✕
-                </button>
-            </div>
-        </div>
+                    <MenuItem value="pending">Pending</MenuItem>
+                    <MenuItem value="in_progress">In Progress</MenuItem>
+                    <MenuItem value="completed">Completed</MenuItem>
+                </Select>
+                <IconButton color="error" onClick={() => onDelete(task.id)}>
+                    <DeleteIcon />
+                </IconButton>
+            </Box>
+        </Paper>
     );
 };
