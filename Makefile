@@ -8,7 +8,7 @@ lint:
 	flake8 app
 
 test:
-	pytest -v --disable-warnings
+	 PYTHONPATH=. ENV_FILE=.env.test pytest -v --disable-warnings
 
 run:
 	uvicorn app.main:app --reload --host 0.0.0.0 --port 8000
