@@ -3,6 +3,7 @@ import { Container, Typography, CircularProgress } from "@mui/material";
 import { TaskItem } from "../components/TaskItem";
 import { TaskForm } from "../components/TaskForm";
 import { useTasks } from "../hooks/useTasks";
+import {Task} from "@/types/task";
 
 export default function Home() {
     const { tasks, addTask, changeStatus, removeTask, loading } = useTasks();
