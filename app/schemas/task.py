@@ -1,6 +1,7 @@
 from enum import Enum
 
 from pydantic import BaseModel
+from pydantic.config import ConfigDict
 
 
 class StatusEnum(str, Enum):
@@ -25,5 +26,4 @@ class TaskUpdate(BaseModel):
 class TaskOut(TaskBase):
     id: int
 
-    class Config:
-        orm_mode = True
+    model_config = ConfigDict(from_attributes=True)

@@ -1,6 +1,7 @@
 # Environment variables
 .venv/
 .env
+.env.test
 
 # System files
 .DS_Store
