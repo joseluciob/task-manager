@@ -1,0 +1,15 @@
+# Environment variables
+.venv/
+.env
+.env.test
+
+# System files
+.DS_Store
+Thumbs.db
+
+# Editor configurations
+.idea/
+
+
+# Bytecode
+__pycache__/
