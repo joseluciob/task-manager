@@ -13,6 +13,12 @@ Permite criar, listar, filtrar, editar e excluir tarefas de forma simples e ráp
 
 ## Como iniciar o projeto
 
+**Atenção:** Se você estiver usando Windows ou baixou o repositório como um arquivo .zip, certifique-se de executar:
+
+```
+chmod +x backend/entrypoint.sh backend/wait-for-it.sh
+```
+
 ### 1. Copiar arquivos de ambiente:
 
 ```bash
