@@ -29,7 +29,7 @@ docker-compose up -d
 - A documentação Swagger estará em: http://localhost:8000/docs
 - A interface web estará disponível em: http://localhost:3000
 
-### Comandos úteis com Makefile
+## Comandos úteis com Makefile
 
 O projeto conta com um `Makefile` para facilitar tarefas comuns via Docker.
 
